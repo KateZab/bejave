@@ -7,7 +7,7 @@ import filecmp
 
 @given('Server is running on port 4444')
 def step_impl(context):
-    cmd = "python C:/tests/steps/server7.py"
+    cmd = "python server7.py"
     process = proc.Popen(shlex.split(cmd), stdout=proc.PIPE, shell=True)
     context.server = process
     context.serverpid = process.pid
