@@ -1,0 +1,90 @@
+<testsuite errors="0" failures="1" hostname="DESKTOP-88S5DSQ" name="features.signup.Read data from socket" skipped="0" tests="4" time="3.436792" timestamp="2018-05-02T20:48:33.265349"><testcase classname="features.signup.Read data from socket" name="Run Dump on default PC and default port" status="failed" time="0.122504"><failure message="" type="AssertionError">
+<![CDATA[
+Failing step: Then Expected file is created and same with lol1.txt ... failed in 0.001s
+Location: features/signup.feature:14
+Traceback (most recent call last):
+  File "c:\users\kate\appdata\local\programs\python\python36-32\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "c:\users\kate\appdata\local\programs\python\python36-32\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "steps\steps.py", line 63, in step_impl
+    assert (filecmp.cmp(context.path, sample))
+AssertionError
+
+Captured stdout:
+15172
+b''
+<class 'bytes'>]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Run Dump on default PC and default port
+    Given Server is running on port 4444 ... passed in 0.002s
+    When dumper is started with lol.txt ... passed in 0.072s
+    Then we can kill server ... passed in 0.047s
+    Then Output is empty ... passed in 0.000s
+    Then Error is empty ... passed in 0.000s
+    Then Exit code is 0 ... passed in 0.000s
+    Then Expected file is created and same with lol1.txt ... failed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+15172
+b''
+<class 'bytes'>
+
+]]>
+</system-out></testcase><testcase classname="features.signup.Read data from socket" name="Run Dump on default PC and not default port (server runs on other port)" status="passed" time="1.122494"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Run Dump on default PC and not default port (server runs on other port)
+    Given Server is running on port 4444 ... passed in 0.002s
+    When dumper is started: lol3.txt and 8888 ... passed in 1.071s
+    Then we can kill server ... passed in 0.050s
+    Then Refused Error appears ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+10252
+ERROR:root:[WinError 10061] No connection could be made because the target machine actively refused it
+
+
+]]>
+</system-out></testcase><testcase classname="features.signup.Read data from socket" name="Server is not started run dumper" status="passed" time="1.069116"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Server is not started run dumper
+    When dumper is started with lol4.txt ... passed in 1.069s
+    Then Refused Error appears ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+ERROR:root:[WinError 10061] No connection could be made because the target machine actively refused it
+
+
+]]>
+</system-out></testcase><testcase classname="features.signup.Read data from socket" name="Run Dump with 3" status="passed" time="1.122679"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Run Dump with 3
+    Given Server is running on port 4444 ... passed in 0.002s
+    When dumper is started: lol3.txt and 8888 ... passed in 1.071s
+    Then we can kill server ... passed in 0.050s
+    Then Refused Error appears ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+10128
+ERROR:root:[WinError 10061] No connection could be made because the target machine actively refused it
+
+
+]]>
+</system-out></testcase></testsuite>
