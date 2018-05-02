@@ -61,3 +61,13 @@ def step_impl(context):
 @then(u'Expected file is created and same with {sample}')
 def step_impl(context, sample):
     assert (filecmp.cmp(context.path, sample))
+
+@when(u'Dump  with 3 arguments started: {pathToFile} and {port} and {address}')
+def step_impl(context, pathToFile, port, address):
+    process = proc.Popen(["python", "C:/tests/__main__.py", "-o", pathToFile, "-p", port, "-a", address], stdout=proc.PIPE, stderr=proc.PIPE) 
+    out, err = process.communicate()    # execute it, the output goes to the stdout
+    exit_code = process.wait() 
+    context.exit_code = exit_code
+    context.out = out
+    context.err = err
+    context.path = pathToFile
