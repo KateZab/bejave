@@ -17,7 +17,7 @@ def step_impl(context):
 @when(u'dumper is started with {pathToFile}')
 def step_impl(context, pathToFile):
     
-    process = proc.Popen(["python", "C:/tests/__main__.py", "-o", pathToFile], stdout=proc.PIPE, stderr=proc.PIPE) 
+    process = proc.Popen(["python", "__main__.py", "-o", pathToFile], stdout=proc.PIPE, stderr=proc.PIPE) 
     out, err = process.communicate()    # execute it, the output goes to the stdout
     exit_code = process.wait() 
     context.exit_code = exit_code
@@ -42,7 +42,7 @@ def step_impl(context):
 	
 @when(u'dumper is started: {pathToFile} and {port}')
 def step_impl(context, pathToFile, port):
-    process = proc.Popen(["python", "C:/tests/__main__.py", "-o", pathToFile, "-p", port], stdout=proc.PIPE, stderr=proc.PIPE) 
+    process = proc.Popen(["python", "__main__.py", "-o", pathToFile, "-p", port], stdout=proc.PIPE, stderr=proc.PIPE) 
     out, err = process.communicate()    # execute it, the output goes to the stdout
     exit_code = process.wait() 
     context.exit_code = exit_code
@@ -64,7 +64,7 @@ def step_impl(context, sample):
 
 @when(u'Dump  with 3 arguments started: {pathToFile} and {port} and {address}')
 def step_impl(context, pathToFile, port, address):
-    process = proc.Popen(["python", "C:/tests/__main__.py", "-o", pathToFile, "-p", port, "-a", address], stdout=proc.PIPE, stderr=proc.PIPE) 
+    process = proc.Popen(["python", "__main__.py", "-o", pathToFile, "-p", port, "-a", address], stdout=proc.PIPE, stderr=proc.PIPE) 
     out, err = process.communicate()    # execute it, the output goes to the stdout
     exit_code = process.wait() 
     context.exit_code = exit_code
